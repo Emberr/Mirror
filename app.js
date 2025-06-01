@@ -28,6 +28,7 @@ const quoteMirrorSection         = document.getElementById('quoteMirrorSection')
 const quoteList                  = document.getElementById('quoteList');
 const radarCanvas                = document.getElementById('ideologyRadar');
 const downloadCsvBtn             = document.getElementById('downloadCsvBtn');
+const newExperimentBtn           = document.getElementById('newExperimentBtn');
 
 const principleModal     = document.getElementById('principle');
 const principleForm      = document.getElementById('principleForm');
@@ -62,6 +63,7 @@ async function init() {
     confirmEmotionBtn.addEventListener('click', onConfirmEmotion);
     seeMirrorButton.addEventListener('click', showQuoteMirror);
     downloadCsvBtn.addEventListener('click', () => exportDataToCSV(user));
+    newExperimentBtn.addEventListener('click', startNewExperiment);
 
     const observer = new MutationObserver(() => {
         if (!cardContainer.classList.contains('hidden')) {
@@ -282,6 +284,28 @@ function renderRadarChart(ctx, dataVec) {
             }
         }
     });
+}
+
+function startNewExperiment() {
+    // Save current session data as a completed experiment
+    user.experiments = user.experiments || [];
+    user.experiments.push({
+        completedAt: new Date().toISOString(),
+        version: user.version,
+        history: [...user.history],
+        emotionHistory: [...user.emotionHistory],
+        ideologyVec: {...user.ideologyVec}
+    });
+    
+    // Reset the current session
+    user.history = [];
+    user.emotionHistory = [];
+    user.ideologyVec = {/* Initial values */};
+    
+    saveUser(user);
+    console.debug('Started new experiment. Previous experiment saved:', user.experiments.length);
+    
+    window.location.reload();
 }
 
 window.addEventListener('DOMContentLoaded', init);
