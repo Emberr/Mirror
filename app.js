@@ -15,6 +15,7 @@ let selectedOptionData = null;
 let dilemmaLoadTs = 0;
 
 let selectedEmotion = null;
+let finalEmotionGiven = false;
 
 const versionToggle              = document.getElementById('versionToggle');
 const startButton                = document.getElementById('startButton');
@@ -28,7 +29,7 @@ const quoteMirrorSection         = document.getElementById('quoteMirrorSection')
 const quoteList                  = document.getElementById('quoteList');
 const radarCanvas                = document.getElementById('ideologyRadar');
 const downloadCsvBtn             = document.getElementById('downloadCsvBtn');
-const newExperimentBtn           = document.getElementById('newExperimentBtn');
+const restartExperimentBtn       = document.getElementById('restartExperimentBtn');
 
 const principleModal     = document.getElementById('principle');
 const principleForm      = document.getElementById('principleForm');
@@ -63,7 +64,7 @@ async function init() {
     confirmEmotionBtn.addEventListener('click', onConfirmEmotion);
     seeMirrorButton.addEventListener('click', showQuoteMirror);
     downloadCsvBtn.addEventListener('click', () => exportDataToCSV(user));
-    newExperimentBtn.addEventListener('click', startNewExperiment);
+    restartExperimentBtn.addEventListener('click', startNewExperiment);
 
     const observer = new MutationObserver(() => {
         if (!cardContainer.classList.contains('hidden')) {
@@ -191,36 +192,88 @@ function showEmotionModal(stage) {
 
 function onConfirmEmotion() {
     if (!selectedEmotion) return;
-    if (emotionModal.querySelector('h2').textContent.includes('overall experience')) {
-        finalEmotionGiven = true;
-        downloadCsvBtn.disabled = false;
-    }
-    user.emotionHistory.push({
-        stage: currentIndex,
+
+    // Build the log entry
+    const entry = {
+        stage: currentIndex,                 // might be 3, 6, or 8 (final)
         emotion: selectedEmotion.name,
         intensity: selectedEmotion.intensity,
         ts: new Date().toISOString()
-    });
+    };
+
+    // If this is the "overall experience" prompt...
+    const headerText = emotionModal.querySelector('h2').textContent;
+    if (headerText.includes('overall experience')) {
+        // 1) Mark that final emotion has been given
+        finalEmotionGiven = true;
+
+        // 2) Enable Download & Restart buttons now
+        downloadCsvBtn.disabled = false;
+        restartExperimentBtn.disabled = false;
+    }
+
+    // Log it regardless
+    user.emotionHistory.push(entry);
     saveUser(user);
+
     hide(emotionModal);
-    if (finalEmotionGiven) return;
-    renderCurrentDilemma();
+
+    // If it was NOT the final emotion, continue to next dilemma
+    if (!finalEmotionGiven) {
+        renderCurrentDilemma();
+    }
+    // If finalEmotionGiven is true, we simply stay on the quote mirror screen
 }
 
-let finalEmotionGiven = false;
-
 function showFinalEmotionModal() {
+    // 1) Clear out any previous wheel buttons
     plutchikWheel.innerHTML = '';
     selectedEmotion = null;
     confirmEmotionBtn.disabled = true;
-    emotionModal.querySelector('h2').textContent = 'Finally, which emotion best describes your overall experience?';
+
+    // 2) Change the modal's header text to the "overall experience" prompt
+    emotionModal.querySelector('h2').textContent = 
+        'Finally, which emotion best describes your overall experience?';
+
+    // 3) Re‐render the Plutchik wheel exactly as before
+    const emotions = [
+        'Joy', 'Trust', 'Fear', 'Surprise',
+        'Sadness', 'Disgust', 'Anger', 'Anticipation'
+    ];
+    const wheelGrid = document.createElement('div');
+    wheelGrid.className = 'grid grid-cols-4 gap-2';
+    emotions.forEach((eName) => {
+        const btn = document.createElement('button');
+        btn.textContent = eName;
+        btn.className = 'px-2 py-1 bg-yellow-200 rounded hover:bg-yellow-300 focus:outline-none';
+        btn.dataset.emotion = eName;
+        btn.dataset.level = 1; // initial intensity = 1
+        btn.addEventListener('click', () => {
+            // Cycle intensity 1 → 2 → 3 → back to 1
+            let lvl = parseInt(btn.dataset.level, 10);
+            lvl = lvl < 3 ? lvl + 1 : 1;
+            btn.dataset.level = lvl;
+            // Update background shade per intensity
+            btn.style.backgroundColor = ['#FFEDA0','#FED976','#FEB24C'][lvl - 1];
+            selectedEmotion = { name: eName, intensity: lvl };
+            confirmEmotionBtn.disabled = false;
+        });
+        wheelGrid.appendChild(btn);
+    });
+    plutchikWheel.appendChild(wheelGrid);
+
+    // 4) Show the emotion modal
     show(emotionModal);
+
+    // 5) Reset the "final" flag in case we re‐run experiments
+    finalEmotionGiven = false;
 }
 
 function showQuoteMirror() {
     hide(cardContainer);
     hide(quoteMirrorButtonContainer);
 
+    // 1) Rank & render top 5 quotes
     const topQuotes = rankQuotes(quotes, user.ideologyVec, version);
     quoteList.innerHTML = '';
     topQuotes.forEach((q) => {
@@ -233,10 +286,18 @@ function showQuoteMirror() {
         quoteList.appendChild(div);
     });
 
+    // 2) Draw the radar chart
     renderRadarChart(radarCanvas.getContext('2d'), user.ideologyVec);
+
+    // 3) Show the quote mirror section
     show(quoteMirrorSection);
-    showFinalEmotionModal();
+
+    // 4) DISABLE the Download & Restart buttons until final emotion is given
     downloadCsvBtn.disabled = true;
+    restartExperimentBtn.disabled = true;
+
+    // 5) Trigger the "Overall experience" emotion prompt
+    showFinalEmotionModal();
 }
 
 function rankDilemmas(list, userVec, version) {
@@ -287,24 +348,33 @@ function renderRadarChart(ctx, dataVec) {
 }
 
 function startNewExperiment() {
-    // Save current session data as a completed experiment
     user.experiments = user.experiments || [];
     user.experiments.push({
         completedAt: new Date().toISOString(),
         version: user.version,
         history: [...user.history],
         emotionHistory: [...user.emotionHistory],
-        ideologyVec: {...user.ideologyVec}
+        ideologyVec: { ...user.ideologyVec }
     });
-    
-    // Reset the current session
+
+    // Reset to defaults
     user.history = [];
     user.emotionHistory = [];
-    user.ideologyVec = {/* Initial values */};
-    
+    user.ideologyVec = {
+        util:   0.0,
+        deon:   0.0,
+        virtue: 0.0,
+        prog:   0.0,
+        cons:   0.0,
+        relig:  0.0
+    };
+    finalEmotionGiven = false;
+
     saveUser(user);
-    console.debug('Started new experiment. Previous experiment saved:', user.experiments.length);
-    
+    console.debug(
+        'Started new experiment. Total experiments saved:',
+        user.experiments.length
+    );
     window.location.reload();
 }
 
