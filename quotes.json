@@ -1,0 +1,44 @@
+[
+  {
+    "id": "Q01",
+    "text": "Act only according to that maxim whereby you can at the same time will that it should become a universal law.",
+    "author": "Immanuel Kant",
+    "vec": { "util": 0.0, "deon": 1.0, "virtue": 0.0, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q02",
+    "text": "The greatest happiness of the greatest number is the foundation of morals and legislation.",
+    "author": "Jeremy Bentham",
+    "vec": { "util": 1.0, "deon": 0.0, "virtue": 0.0, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q03",
+    "text": "Let justice roll down like waters, and righteousness like an ever-flowing stream.",
+    "author": "Amos 5:24 (Bible)",
+    "vec": { "util": 0.4, "deon": 0.6, "virtue": 0.2, "prog": 0.0, "cons": 0.2, "relig": 1.0 }
+  },
+  {
+    "id": "Q04",
+    "text": "Injustice anywhere is a threat to justice everywhere.",
+    "author": "Martin Luther King Jr.",
+    "vec": { "util": 0.7, "deon": 0.3, "virtue": 0.5, "prog": 0.8, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q05",
+    "text": "Do what is right, not what is easy.",
+    "author": "Roy T. Bennett",
+    "vec": { "util": 0.2, "deon": 0.8, "virtue": 0.6, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q06",
+    "text": "The arc of the moral universe is long, but it bends toward justice.",
+    "author": "Theodore Parker (popularized by MLK Jr.)",
+    "vec": { "util": 0.5, "deon": 0.2, "virtue": 0.3, "prog": 0.9, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q07",
+    "text": "Faith does not make things easy, it makes them possible.",
+    "author": "Luke 1:37 (Bible)",
+    "vec": { "util": 0.0, "deon": 0.0, "virtue": 0.3, "prog": 0.0, "cons": 0.0, "relig": 1.0 }
+  }
+]

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "DL01",
+    "prompt": "A runaway trolley is heading toward five workers on the track. You can pull a lever to divert it onto another track where it will kill one person. Do you pull the lever?",
+    "options": [
+      {
+        "txt": "Yes—divert the trolley to save five, sacrificing one.",
+        "vec": { "util": 1.0, "deon": 0.0, "virtue": 0.0, "prog": 0.2, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "No—do not interfere, since killing is inherently wrong.",
+        "vec": { "util": 0.0, "deon": 1.0, "virtue": 0.0, "prog": 0.0, "cons": 0.5, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL02",
+    "prompt": "You discover your best friend is embezzling funds from a non-profit. If you report them, they go to jail; if you stay silent, the crime continues. What do you do?",
+    "options": [
+      {
+        "txt": "Report to authorities—uphold justice even if it hurts your friend.",
+        "vec": { "util": 0.5, "deon": 0.8, "virtue": 0.2, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Stay loyal and try to help them fix it quietly.",
+        "vec": { "util": 0.2, "deon": 0.0, "virtue": 0.7, "prog": 0.0, "cons": 0.3, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL03",
+    "prompt": "A small community is deciding whether to allow wind turbines on their land. Some believe it protects the environment; others fear noise and property devaluation. What is your stance?",
+    "options": [
+      {
+        "txt": "Support installation—long-term environmental good outweighs short-term discomfort.",
+        "vec": { "util": 0.8, "deon": 0.0, "virtue": 0.2, "prog": 0.6, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Oppose installation—respect locals’ peace and property rights.",
+        "vec": { "util": 0.2, "deon": 0.3, "virtue": 0.0, "prog": 0.0, "cons": 0.7, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL04",
+    "prompt": "You serve as an editor for a student newspaper. A columnist wants to publish an opinion piece that you know is factually false but popular. Do you publish it?",
+    "options": [
+      {
+        "txt": "Publish with a disclaimer—people deserve to read diverse views even if flawed.",
+        "vec": { "util": 0.3, "deon": 0.0, "virtue": 0.2, "prog": 0.7, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Reject it—journalism must prioritize truth over popularity.",
+        "vec": { "util": 0.0, "deon": 1.0, "virtue": 0.3, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Edit heavily to correct the inaccuracies before publishing.",
+        "vec": { "util": 0.5, "deon": 0.5, "virtue": 0.5, "prog": 0.3, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL05",
+    "prompt": "Your religious community discourages charity to outside groups. You see a family in dire need. Do you secretly help them despite rules?",
+    "options": [
+      {
+        "txt": "Yes—compassion and generosity go beyond institutional rules.",
+        "vec": { "util": 0.4, "deon": 0.0, "virtue": 0.8, "prog": 0.0, "cons": 0.0, "relig": 0.9 }
+      },
+      {
+        "txt": "No—follow the community’s guidelines above personal impulses.",
+        "vec": { "util": 0.0, "deon": 0.9, "virtue": 0.0, "prog": 0.0, "cons": 0.5, "relig": 0.8 }
+      }
+    ]
+  },
+  {
+    "id": "DL06",
+    "prompt": "A public school proposes adding a brief daily prayer to open classes. Some argue it fosters unity; others say it violates separation of church and state. Your vote?",
+    "options": [
+      {
+        "txt": "Vote for prayer—shared rituals strengthen moral community.",
+        "vec": { "util": 0.2, "deon": 0.0, "virtue": 0.3, "prog": 0.0, "cons": 0.2, "relig": 1.0 }
+      },
+      {
+        "txt": "Vote against—maintain secular education and respect all beliefs.",
+        "vec": { "util": 0.8, "deon": 0.0, "virtue": 0.2, "prog": 0.5, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL07",
+    "prompt": "A new law would impose a small tax on sugary drinks to fund healthcare. Do you support it?",
+    "options": [
+      {
+        "txt": "Support—public health benefit outweighs minor personal cost.",
+        "vec": { "util": 1.0, "deon": 0.0, "virtue": 0.0, "prog": 0.7, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Oppose—taxing personal choices is government overreach.",
+        "vec": { "util": 0.0, "deon": 0.0, "virtue": 0.0, "prog": 0.0, "cons": 1.0, "relig": 0.0 }
+      }
+    ]
+  }
+]
