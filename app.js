@@ -111,10 +111,10 @@ function renderCurrentDilemma() {
 }
 
 function onOptionSelected(dilemmaId, opt, optionId) {
-
     const rt_ms = performance.now() - dilemmaLoadTs;
     selectedOptionData = { dilemmaId, optionVec: opt.vec, optionId, rt_ms };
-
+    // Debug: log choice
+    console.debug('Choice made:', { dilemmaId, optionId, optionText: opt.txt, rt_ms });
     show(principleModal);
 }
 
@@ -131,7 +131,6 @@ function onConfirmPrinciple() {
         user.ideologyVec[k] += η * (selectedOptionData.optionVec[k] - user.ideologyVec[k]);
     }
 
-
     user.history.push({
         dilemmaId: selectedOptionData.dilemmaId,
         optionId: selectedOptionData.optionId,
@@ -140,6 +139,9 @@ function onConfirmPrinciple() {
         ts: new Date().toISOString()
     });
     saveUser(user);
+
+    // Debug: log updated user ideology vector
+    console.debug('Updated ideologyVec:', {...user.ideologyVec});
 
     selectedOptionData = null;
     currentIndex++;
@@ -187,7 +189,10 @@ function showEmotionModal(stage) {
 
 function onConfirmEmotion() {
     if (!selectedEmotion) return;
-
+    if (emotionModal.querySelector('h2').textContent.includes('overall experience')) {
+        finalEmotionGiven = true;
+        downloadCsvBtn.disabled = false;
+    }
     user.emotionHistory.push({
         stage: currentIndex,
         emotion: selectedEmotion.name,
@@ -195,9 +200,19 @@ function onConfirmEmotion() {
         ts: new Date().toISOString()
     });
     saveUser(user);
-
     hide(emotionModal);
+    if (finalEmotionGiven) return;
     renderCurrentDilemma();
+}
+
+let finalEmotionGiven = false;
+
+function showFinalEmotionModal() {
+    plutchikWheel.innerHTML = '';
+    selectedEmotion = null;
+    confirmEmotionBtn.disabled = true;
+    emotionModal.querySelector('h2').textContent = 'Finally, which emotion best describes your overall experience?';
+    show(emotionModal);
 }
 
 function showQuoteMirror() {
@@ -217,8 +232,9 @@ function showQuoteMirror() {
     });
 
     renderRadarChart(radarCanvas.getContext('2d'), user.ideologyVec);
-
     show(quoteMirrorSection);
+    showFinalEmotionModal();
+    downloadCsvBtn.disabled = true;
 }
 
 function rankDilemmas(list, userVec, version) {
