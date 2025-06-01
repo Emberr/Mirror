@@ -40,5 +40,65 @@
     "text": "Faith does not make things easy, it makes them possible.",
     "author": "Luke 1:37 (Bible)",
     "vec": { "util": 0.0, "deon": 0.0, "virtue": 0.3, "prog": 0.0, "cons": 0.0, "relig": 1.0 }
+  },
+  {
+    "id": "Q08",
+    "text": "Let yourself be silently drawn by the strange pull of what you really love. It will not lead you astray.",
+    "author": "Rumi",
+    "vec": { "util": 0.0, "deon": 0.1, "virtue": 0.7, "prog": 0.2, "cons": 0.0, "relig": 0.5 }
+  },
+  {
+    "id": "Q09",
+    "text": "Do to others as you would have them do to you.",
+    "author": "Luke 6:31 (Bible)",
+    "vec": { "util": 0.6, "deon": 0.8, "virtue": 0.5, "prog": 0.0, "cons": 0.0, "relig": 0.7 }
+  },
+  {
+    "id": "Q10",
+    "text": "Let no one ever come to you without leaving better and happier.",
+    "author": "Mother Teresa (Saint)",
+    "vec": { "util": 0.4, "deon": 0.3, "virtue": 0.9, "prog": 0.0, "cons": 0.0, "relig": 0.8 }
+  },
+  {
+    "id": "Q11",
+    "text": "Injustice anywhere is a threat to justice everywhere.",
+    "author": "Martin Luther King Jr.",
+    "vec": { "util": 0.7, "deon": 0.6, "virtue": 0.8, "prog": 0.5, "cons": 0.0, "relig": 0.2 }
+  },
+  {
+    "id": "Q12",
+    "text": "Be the change that you wish to see in the world.",
+    "author": "Mahatma Gandhi",
+    "vec": { "util": 0.3, "deon": 0.4, "virtue": 0.9, "prog": 0.3, "cons": 0.0, "relig": 0.5 }
+  },
+  {
+    "id": "Q13",
+    "text": "The best way to find yourself is to lose yourself in the service of others.",
+    "author": "Mahatma Gandhi",
+    "vec": { "util": 0.5, "deon": 0.4, "virtue": 0.8, "prog": 0.2, "cons": 0.0, "relig": 0.6 }
+  },
+  {
+    "id": "Q14",
+    "text": "We must learn to live together as brothers or perish together as fools.",
+    "author": "Martin Luther King Jr.",
+    "vec": { "util": 0.6, "deon": 0.5, "virtue": 0.7, "prog": 0.6, "cons": 0.0, "relig": 0.3 }
+  },
+  {
+    "id": "Q15",
+    "text": "The only thing we have to fear is fear itself.",
+    "author": "Franklin D. Roosevelt",
+    "vec": { "util": 0.3, "deon": 0.2, "virtue": 0.1, "prog": 0.5, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q16",
+    "text": "Power concedes nothing without a demand. It never did and it never will.",
+    "author": "Frederick Douglass",
+    "vec": { "util": 0.4, "deon": 0.7, "virtue": 0.5, "prog": 0.8, "cons": 0.0, "relig": 0.0 }
+  },
+  {
+    "id": "Q17",
+    "text": "Blessed are the peacemakers, for they will be called children of God.",
+    "author": "Matthew 5:9 (Bible)",
+    "vec": { "util": 0.5, "deon": 0.6, "virtue": 0.9, "prog": 0.0, "cons": 0.0, "relig": 0.8 }
   }
 ]

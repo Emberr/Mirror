@@ -100,5 +100,145 @@
         "vec": { "util": 0.0, "deon": 0.0, "virtue": 0.0, "prog": 0.0, "cons": 1.0, "relig": 0.0 }
       }
     ]
+  },
+  {
+    "id": "DL08",
+    "prompt": "A doctor working in a crowded hospital has one last dose of an expensive, life-saving medication and three patients in critical condition. If she gives it to one patient, the other two will likely die. How should she allocate the dose?",
+    "options": [
+      {
+        "txt": "Give it to the patient with the best chance of full recovery, maximizing lives saved.",
+        "vec": { "util": 1.0, "deon": 0.0, "virtue": 0.2, "prog": 0.5, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Give it by lottery so everyone has an equal chance, respecting fairness.",
+        "vec": { "util": 0.3, "deon": 0.8, "virtue": 0.4, "prog": 0.2, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL09",
+    "prompt": "You find a lost wallet on the street containing a large sum of cash and the owner’s ID. Keeping the money could solve your immediate financial problems. Do you return the wallet intact or keep the cash?",
+    "options": [
+      {
+        "txt": "Return the wallet with all its contents to the owner.",
+        "vec": { "util": 0.2, "deon": 0.9, "virtue": 0.7, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Keep the cash and discard the wallet, since you need the money more.",
+        "vec": { "util": 0.8, "deon": 0.0, "virtue": 0.0, "prog": 0.1, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL10",
+    "prompt": "An autonomous car’s brakes fail. It can either swerve into a wall, likely killing its single passenger, or stay its course and hit a group of five pedestrians. What should its AI choose?",
+    "options": [
+      {
+        "txt": "Swerve into the wall, sacrificing one to save five.",
+        "vec": { "util": 1.0, "deon": 0.0, "virtue": 0.1, "prog": 0.4, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Stay on course, because the passenger chose to ride, and you cannot override that choice.",
+        "vec": { "util": 0.0, "deon": 0.8, "virtue": 0.0, "prog": 0.0, "cons": 0.5, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL11",
+    "prompt": "Your friend asks if you like their new outfit, but you think it looks unflattering. Do you lie to spare their feelings, or tell the honest truth?",
+    "options": [
+      {
+        "txt": "Lie and say it looks great, valuing their happiness.",
+        "vec": { "util": 0.6, "deon": 0.0, "virtue": 0.3, "prog": 0.0, "cons": 0.2, "relig": 0.0 }
+      },
+      {
+        "txt": "Tell the truth so they can improve, even if it hurts their feelings now.",
+        "vec": { "util": 0.2, "deon": 0.8, "virtue": 0.5, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL12",
+    "prompt": "At work, you discover a colleague quietly made a significant mistake that benefited the company financially. Reporting it could cost them their job; staying silent lets the company keep the extra profit. Which do you do?",
+    "options": [
+      {
+        "txt": "Report the mistake—they must be held accountable even if they lose their job.",
+        "vec": { "util": 0.3, "deon": 0.9, "virtue": 0.4, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Stay silent—mistakes happen, and losing their job would ruin a family.",
+        "vec": { "util": 0.7, "deon": 0.0, "virtue": 0.6, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL13",
+    "prompt": "You’re an athlete competing for your country. A doctor offers you a safe performance-enhancing drug that guarantees you win a medal but is against the rules. Do you take it?",
+    "options": [
+      {
+        "txt": "Take the drug to secure victory for your country and personal glory.",
+        "vec": { "util": 0.8, "deon": 0.0, "virtue": 0.0, "prog": 0.5, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Refuse it because cheating violates fair competition principles.",
+        "vec": { "util": 0.2, "deon": 0.9, "virtue": 0.6, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL14",
+    "prompt": "Your sibling is facing eviction and begs you to help by forging a signature on important documents. Doing so could keep them off the street but is illegal. Do you forge it?",
+    "options": [
+      {
+        "txt": "Forge the signature to help them avoid poverty.",
+        "vec": { "util": 0.7, "deon": 0.0, "virtue": 0.6, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Refuse and encourage legal channels—they must face consequences of forging.",
+        "vec": { "util": 0.3, "deon": 0.9, "virtue": 0.2, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL15",
+    "prompt": "You discover that an animal-testing lab can expedite drug development but causes suffering to animals. Approving the tests could save thousands of human lives later. Do you allow it?",
+    "options": [
+      {
+        "txt": "Approve animal testing to save human lives.",
+        "vec": { "util": 0.9, "deon": 0.0, "virtue": 0.1, "prog": 0.3, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Prohibit it—animals have rights, and we can find alternative methods.",
+        "vec": { "util": 0.1, "deon": 0.8, "virtue": 0.5, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL16",
+    "prompt": "A company is dumping toxic waste into a river, causing environmental harm but creating many local jobs. Should the government shut down the plant or allow it to continue for economic benefit?",
+    "options": [
+      {
+        "txt": "Shut down the plant to protect the environment despite job losses.",
+        "vec": { "util": 0.3, "deon": 0.7, "virtue": 0.6, "prog": 0.0, "cons": 0.0, "relig": 0.0 }
+      },
+      {
+        "txt": "Allow it to continue for jobs, while imposing stricter future regulations.",
+        "vec": { "util": 0.6, "deon": 0.0, "virtue": 0.2, "prog": 0.5, "cons": 0.0, "relig": 0.0 }
+      }
+    ]
+  },
+  {
+    "id": "DL17",
+    "prompt": "A religious charity must choose between feeding hungry children or funding a new church. There isn’t enough money for both. Which do they do?",
+    "options": [
+      {
+        "txt": "Feed the children—immediate need is more important.",
+        "vec": { "util": 0.8, "deon": 0.0, "virtue": 0.7, "prog": 0.0, "cons": 0.0, "relig": 0.4 }
+      },
+      {
+        "txt": "Fund the church—long-term spiritual support is the priority.",
+        "vec": { "util": 0.2, "deon": 0.7, "virtue": 0.3, "prog": 0.0, "cons": 0.0, "relig": 0.8 }
+      }
+    ]
   }
 ]
