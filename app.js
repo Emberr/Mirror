@@ -18,10 +18,10 @@ let selectedEmotion = null;
 
 const versionToggle              = document.getElementById('versionToggle');
 const startButton                = document.getElementById('startButton');
-const cardContainer              = document.getElementById('cardContainer');
-const emptyState                 = document.getElementById('emptyState');
+const cardContainer              = document.getElementById('dilemmaContainer');
+const emptyState                 = document.getElementById('initialState');
 const dilemmaPrompt              = document.getElementById('dilemmaPrompt');
-const optionButtons              = document.getElementById('optionButtons');
+const optionButtons              = document.getElementById('optionsButton');
 const quoteMirrorButtonContainer = document.getElementById('quoteMirrorButtonContainer');
 const seeMirrorButton            = document.getElementById('seeMirrorButton');
 const quoteMirrorSection         = document.getElementById('quoteMirrorSection');
@@ -29,9 +29,9 @@ const quoteList                  = document.getElementById('quoteList');
 const radarCanvas                = document.getElementById('ideologyRadar');
 const downloadCsvBtn             = document.getElementById('downloadCsvBtn');
 
-const principleModal     = document.getElementById('principleModal');
+const principleModal     = document.getElementById('principle');
 const principleForm      = document.getElementById('principleForm');
-const confirmPrincipleBtn = document.getElementById('confirmPrincipleBtn');
+const confirmPrincipleBtn = document.getElementById('principleSubmit');
 
 const emotionModal        = document.getElementById('emotionModal');
 const plutchikWheel       = document.getElementById('plutchikWheel');
