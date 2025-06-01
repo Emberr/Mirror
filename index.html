@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirror</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="flex items-center justify-between p-4 bg-white shadow">
+        <h1 class="text-xl font-semibold">Ideology Mirror</h1>
+        <div>
+            <label for="versionToggle" class="mr-2">Mode:</label>
+            <select id="versionToggle" class="border border-gray-300 rounded px-2 py-1">
+                <option value="random">Random</option>
+                <option value="personalised">Personalised</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto mt-6">
+        <div id="dilemmaContainer" class="bg-white rounded-lg shadow p-6 hidden">
+            <p id="dilemmaPrompt" class="text-lg mb-4"></p>
+            <div id="optionsButton" class="flex flex-col space-y-2"></div>
+        </div>
+
+        <div id="initialState" class="text-center text-gray-500">
+            <p>Click "Start" to begin your Mirror journey.</p>
+            <button id="startButton" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Start</button>
+        </div>
+    </main>
+
+    <!-- Guiding Principle Section -->
+
+    <div id="principle" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg w-80 p-6">
+            <h2 class="text-lg font-medium-mb-4">Which principle did you think of when making your choice?</h2>
+            <form id="principleForm" class="space-y-2">
+                <label class="flex items-center"><input type="radio" name="principle" value="consequence" class="mr-2"/>Consequence</label>
+                <label class="flex items-center"><input type="radio" name="principle" value="duty" class="mr-2"/>Duty</label>
+                <label class="flex items-center"><input type="radio" name="principle" value="virtue" class="mr-2"/>Virtue</label>
+                <label class="flex items-center"><input type="radio" name="principle" value="scripture" class="mr-2"/>Scripture</label>
+                <label class="flex items-center"><input type="radio" name="principle" value="socialContract" class="mr-2"/>Social Contract</label>
+            </form>
+            <div class="my-4 flex justify-end">
+                <button id="principleSubmit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emotional Model Section -->
+    <div id="emotionModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-lg w-96 p-6">
+            <h2 class="text-lg font-medium mb-4">Which emotion did you feel most strongly?</h2>
+            <div id="plutchikWheel" class="mx-auto mb-4"></div>
+            <p class="text-sm text-gray-600 mb-2">Tap once for low, twice for moderate, three times for high intensity.</p>
+            <div class="mt-4 flex justify-end">
+                <button id="confirmEmotionBtn" class="px-4 py-2 bg-blue-600 text-white rounded" disabled>Confirm Emotion</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mirror -->
+    <section id="quoteMirrorSection" class="max-w-xl mx-auto mt-8 hidden">
+        <h2 class="text-xl font-semibold mb-4 text-center">Your Mirror</h2>
+        <div id="quoteList" class="space-y-4 mb-6"></div>
+        <canvas id="ideologyRadar" width="400" height="400" class="mx-auto"></canvas>
+        <div class="mt-6 text-center">
+            <button id="downloadCsvBtn" class="px-6 py-2 bg-gray-700 text-white rounded">Download My Data</button>
+        </div>
+    </section>
+
+    <script type="module" src="app.js"></script>
+    <script type="module" src="components.js"></script>
+    <script type="module" src="export.js"></script>
+    <script type="module" src="store.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
